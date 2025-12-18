@@ -1,3 +1,7 @@
+
+import dotenv from "dotenv"
+dotenv.config()
+
 import { ApifyClient } from 'apify-client';
 
 const client = new ApifyClient({

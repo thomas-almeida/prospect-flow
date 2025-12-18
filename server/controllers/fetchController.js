@@ -1,3 +1,6 @@
+import dotenv from "dotenv"
+dotenv.config()
+
 import { runActor } from "../services/apify-service.js";
 import { igStoresInput } from "../utils/actorInputs.js";
 

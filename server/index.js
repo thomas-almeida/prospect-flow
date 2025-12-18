@@ -4,6 +4,7 @@ dotenv.config();
 import express from 'express';
 import routes from './routes/index.js';
 import cors from 'cors';
+import { connectDB } from './db/index.js';
 
 const app = express();
 
@@ -22,8 +23,14 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3333;
-app.listen(PORT, () => {
-  console.log(`ONLINE - ${PORT}`);
+
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+  });
+}).catch(error => {
+  console.error('Falha ao conectar ao banco de dados:', error);
+  process.exit(1);
 });
 
 export default app;

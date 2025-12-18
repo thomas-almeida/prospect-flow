@@ -1,16 +1,16 @@
 import mongoose from "mongoose";
 
 const InstagramProfileSchema = new mongoose.Schema({
-    username: { type: String, required: true },
-    fullName: { type: String, required: true },
-    url: { type: String, required: true },
-    bio: { type: String, required: true },
-    externalUrls: { type: Array, required: true },
-    followers: { type: Number, required: true },
-    verified: { type: Boolean, required: true },
+    username: { type: String, default: "" },
+    fullName: { type: String, default: "" },
+    url: { type: String, default: "" },
+    bio: { type: String, default: "" },
+    externalUrls: { type: Array, default: [] },
+    followers: { type: Number, default: 0 },
+    verified: { type: Boolean, default: false },
     profilePicUrl: { type: String, default: "" },
-    postsCount: { type: Number, required: true },
-    latestPosts: { type: Array, required: true },
+    postsCount: { type: Number, default: 0 },
+    latestPosts: { type: Array, default: [] },
 })
 
 const InstagramProfile = mongoose.model("InstagramProfile", InstagramProfileSchema);
